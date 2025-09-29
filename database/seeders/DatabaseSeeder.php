@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // Seeders français pour BiblioTech
         $this->call([
-            CategorySeeder::class,  // Créer d'abord les catégories
+            CategorieSeeder::class,  // Créer d'abord les catégories
             LivreSeeder::class,     // Puis les livres avec relations
         ]);
 

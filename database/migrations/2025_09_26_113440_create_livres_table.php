@@ -21,9 +21,9 @@ return new class extends Migration
             $table->text('resume')->nullable();
             $table->string('couverture')->nullable();
             $table->boolean('disponible')->default(true);
-            $table->string('categorie')->nullable();
+            $table->foreignId('categorie_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
-            
+
             // Index pour améliorer les recherches
             $table->index(['titre', 'auteur']);
             $table->index('disponible');

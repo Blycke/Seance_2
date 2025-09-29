@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Livre;
-use App\Models\Category;
+use App\Models\Categorie;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,12 +15,12 @@ class LivreSeeder extends Seeder
     public function run(): void
     {
         // Récupération des catégories pour les relations
-        $laravel = Category::where('slug', 'laravel')->first();
-        $php = Category::where('slug', 'php')->first();
-        $database = Category::where('slug', 'database')->first();
-        $frontend = Category::where('slug', 'frontend')->first();
-        $devops = Category::where('slug', 'devops')->first();
-        $architecture = Category::where('slug', 'architecture')->first();
+        $laravel = Categorie::where('nom', 'Laravel')->first();
+        $php = Categorie::where('nom', 'PHP')->first();
+        $database = Categorie::where('nom', 'Base de Données')->first();
+        $frontend = Categorie::where('nom', 'Frontend')->first();
+        $devops = Categorie::where('nom', 'DevOps')->first();
+        $architecture = Categorie::where('nom', 'Architecture')->first();
 
         $livres = [
             [
@@ -32,8 +32,7 @@ class LivreSeeder extends Seeder
                 'resume' => 'Guide complet pour apprendre Laravel étape par étape. Ce livre couvre tous les aspects fondamentaux du framework PHP le plus populaire.',
                 'couverture' => 'laravel.jpg',
                 'disponible' => true,
-                'categorie' => 'Laravel', // Ancien champ pour compatibilité
-                'category_id' => $laravel?->id,
+                'categorie_id' => $laravel?->id,
             ],
             [
                 'titre' => 'Docker en Pratique',
@@ -44,8 +43,7 @@ class LivreSeeder extends Seeder
                 'resume' => 'Maîtriser la containerisation avec Docker. Apprenez à créer, déployer et gérer des applications containerisées.',
                 'couverture' => 'docker.jpg',
                 'disponible' => true,
-                'categorie' => 'DevOps',
-                'category_id' => $devops?->id,
+                'categorie_id' => $devops?->id,
             ],
             [
                 'titre' => 'MVC Expliqué Simplement',
@@ -56,8 +54,7 @@ class LivreSeeder extends Seeder
                 'resume' => 'Comprendre l\'architecture MVC avec des exemples concrets. Pattern architectural incontournable du développement moderne.',
                 'couverture' => 'mvc.jpg',
                 'disponible' => false,
-                'categorie' => 'Architecture',
-                'category_id' => $architecture?->id,
+                'categorie_id' => $architecture?->id,
             ],
             [
                 'titre' => 'PHP 8 - Les Nouveautés',
@@ -68,8 +65,7 @@ class LivreSeeder extends Seeder
                 'resume' => 'Découvrez toutes les nouveautés de PHP 8 : types union, attributs, match expression et bien plus.',
                 'couverture' => 'php8.jpg',
                 'disponible' => true,
-                'categorie' => 'PHP',
-                'category_id' => $php?->id,
+                'categorie_id' => $php?->id,
             ],
             [
                 'titre' => 'SQLite pour les Applications Modernes',
@@ -80,8 +76,7 @@ class LivreSeeder extends Seeder
                 'resume' => 'Guide complet de SQLite pour le développement d\'applications. Performance, sécurité et bonnes pratiques.',
                 'couverture' => 'sqlite.jpg',
                 'disponible' => true,
-                'categorie' => 'Base de Données',
-                'category_id' => $database?->id,
+                'categorie_id' => $database?->id,
             ],
             [
                 'titre' => 'Bootstrap 5 et CSS Moderne',
@@ -92,8 +87,7 @@ class LivreSeeder extends Seeder
                 'resume' => 'Créer des interfaces modernes avec Bootstrap 5. Composants, grille responsive et personnalisation.',
                 'couverture' => 'bootstrap5.jpg',
                 'disponible' => true,
-                'categorie' => 'Frontend',
-                'category_id' => $frontend?->id,
+                'categorie_id' => $frontend?->id,
             ]
         ];
 
